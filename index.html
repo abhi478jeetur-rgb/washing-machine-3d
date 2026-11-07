@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Man Stuck in Washing Machine — real-time 3D</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #14110b; color: #f3ead6; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px; box-sizing: border-box; height: 100%; }
+  canvas { height: calc(100vh - 150px); max-width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,.6); object-fit: contain; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  button, a.btn { font-size: 18px; font-weight: 700; padding: 12px 22px; border-radius: 10px; border: 0; cursor: pointer; text-decoration: none; }
+  #start { background: #ffcf33; color: #1b1405; font-size: 22px; }
+  #render { background: #2f6fe0; color: #fff; }
+  #render:disabled { opacity: .5; cursor: wait; }
+  #dl { background: #2ea84f; color: #fff; display: none; }
+  .prog { width: min(520px, 92vw); height: 8px; background: #3a3326; border-radius: 4px; overflow: hidden; }
+  #bar { height: 100%; width: 0; background: #ffcf33; transition: width .2s; }
+  #status { font-size: 13px; opacity: .8; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="out" width="720" height="1280"></canvas>
+  <div class="row">
+    <button id="start">▶ Start Animation</button>
+    <button id="render">⏺ Render &amp; Download</button>
+    <a id="dl" class="btn" href="#">⬇ Download</a>
+  </div>
+  <div class="prog"><div id="bar"></div></div>
+  <div id="status">Loading…</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
